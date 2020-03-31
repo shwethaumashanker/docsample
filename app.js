@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 // Initialize environment
 const app = express();
 const port = process.env.PORT || 3000;
-const mongoURI = 'mongodb://localhost:27017/multer'
+const mongoURI = 'mongodb://localhost:27017/Twistter'
 
 // Create Mongo connection
 const conn = mongoose.createConnection(mongoURI);
@@ -25,7 +25,7 @@ conn.once('open', () => {
 
 // Create storage engine
 const storage = new GridFsStorage({
-  url: monogoURI,
+  url: 'mongodb://localhost:27017/Twistter',
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
